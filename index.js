@@ -26,10 +26,32 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
-  pop() {}
+  pop() {
+    if (!this.head) {
+      return undefined;
+    }
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    var pre = this.head;
+    var temp = this.head.next;
+
+    while (temp.next != null) {
+      pre = temp;
+      temp = temp.next;
+    }
+    pre.next = null;
+    this.tail = pre;
+    this.length--;
+
+    return this;
+  }
 }
 
 list = new SinglyLinkedList();
 list.push("hello");
 list.push("hi");
+list.push("goodbye");
+list.pop();
 console.log(list);
