@@ -47,11 +47,20 @@ class SinglyLinkedList {
 
     return this;
   }
+  shift() {
+    var temp = this.head;
+    this.head = this.head.next;
+    return this;
+  }
 }
 
 list = new SinglyLinkedList();
-list.push("hello");
 list.push("hi");
+list.push("hello");
 list.push("goodbye");
+list.push("bye");
+console.log(list);
 list.pop();
+console.log(list);
+list.shift();
 console.log(list);
